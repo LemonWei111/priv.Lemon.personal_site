@@ -1,0 +1,195 @@
+﻿/* styles.css */
+
+/* Global styles */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: '宋体', '华文新魏', serif;
+    background-color: #FDF5E6;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header styles */
+header {
+    background-color: #FFDEAD;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+}
+
+    header h1 {
+        margin: 0;
+        font-size: 2.5em;
+    }
+
+/* Navigation styles */
+nav {
+    background-color: #ADD8E6;
+    padding: 10px;
+    text-align: center;
+}
+
+    nav a {
+        margin: 0 15px;
+        text-decoration: none;
+        color: #333;
+        font-size: 1.2em;
+    }
+
+/* Main content styles */
+main {
+    flex: 1;
+    padding: 20px;
+    margin: 20px;
+    background-color: #FFF;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Section styles */
+section {
+    margin-bottom: 20px;
+    opacity: 0;
+    transition: opacity 1s ease-in-out; /* 增加过渡效果并调整速度 */
+}
+
+section.visible {
+        opacity: 1;
+    }
+
+    /* 添加其他样式 */
+    section h2 {
+        font-size: 2em;
+        border-bottom: 2px solid #ADD8E6;
+        padding-bottom: 10px;
+        transition: color 0.3s ease, border-color 0.3s ease;
+    }
+
+        /* 当鼠标悬停在标题上时改变颜色 */
+        section h2:hover {
+            color: #007BFF;
+            border-color: #007BFF;
+        }
+
+/* Footer styles */
+footer {
+    background-color: #FFDEAD;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+}
+
+/* Profile picture styles */
+.profile-pic {
+    position: absolute;
+    top: 10px;
+    right: 230px; /* Adjust the photo position as needed */
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ADD8E6;
+}
+
+/* Projects section styles */
+#portfolio .projects {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+#portfolio .project {
+    flex-basis: calc(50% - 30px); /* 减去gap的一半 */
+    background-color: #f8f8f8;
+    padding: 10px;
+    border-radius: 5px;
+    transition: transform 0.3s ease-in-out;
+}
+
+    #portfolio .project:hover {
+        transform: translateY(-5px); /* 上升效果 */
+    }
+
+    #portfolio .project h3 {
+        margin-bottom: 10px;
+    }
+
+    #portfolio .project p {
+        margin: 5px 0;
+    }
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    #portfolio .project {
+        flex-basis: 100%; /* 在小屏幕下改为单列 */
+    }
+}
+
+/* Resume section styles */
+#resume .career,
+#resume .education {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+    #resume .career li,
+    #resume .education li {
+        margin-bottom: 10px;
+    }
+
+/* Honors section styles */
+#honors .national,
+#honors .provincial,
+#honors .municipal {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+    #honors .national li,
+    #honors .provincial li,
+    #honors .municipal li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+        padding: 10px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        #honors .national li:hover,
+        #honors .provincial li:hover,
+        #honors .municipal li:hover {
+            background-color: #F5F5DC;
+            transform: scale(1.05); /* Slight zoom effect on hover */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow effect on hover */
+        }
+
+    #honors .national li {
+        background-color: #FFFAFA; /* Lighter background for national awards */
+    }
+
+    #honors .provincial li {
+        background-color: #FAEBD7; /* Slightly darker for provincial awards */
+    }
+
+    #honors .municipal li {
+        background-color: #F0E68C; /* Darker for municipal awards */
+    }
+
+#honors .award {
+    flex-grow: 1;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Text shadow */
+}
+
+#honors .date {
+    text-align: right;
+    font-size: 0.9em;
+    color: #666;
+}
