@@ -19,3 +19,15 @@ document.addEventListener('DOMContentLoaded', function () {
   makeCollapsible('portfolio-toggle', 'projects-list');
   // makeCollapsible('another-toggle', 'another-list');
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+  makeCollapsible('portfolio-toggle', 'projects-list');
+
+  document.querySelectorAll('.blog-toggle').forEach((toggle, index) => {
+    const content = toggle.nextElementSibling;
+    if (!content) return;
+    content.id = content.id || `blog-content-${index + 1}`;
+    toggle.id = toggle.id || `blog-toggle-${index + 1}`;
+    makeCollapsible(toggle.id, content.id);
+  });
+});
