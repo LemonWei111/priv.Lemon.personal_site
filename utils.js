@@ -16,21 +16,15 @@ function makeCollapsible(toggleId, listId) {
 
 // 使用
 document.addEventListener('DOMContentLoaded', function () {
-  makeCollapsible('portfolio-toggle', 'projects-list');
-  // makeCollapsible('another-toggle', 'another-list');
-});
-
-// 博客
-document.addEventListener('DOMContentLoaded', function () {
+  // 1. 影视作品集折叠（原有功能，必须保留）
   makeCollapsible('portfolio-toggle', 'projects-list');
 
-  // 博客折叠：每个 .blog 内查找 .blog-toggle 和 .blog-content
+  // 2. 博客折叠：每个 .blog 内查找 .blog-toggle 和 .blog-content
   document.querySelectorAll('.blog').forEach(blog => {
     const toggle = blog.querySelector('.blog-toggle');
     const content = blog.querySelector('.blog-content');
     if (!toggle || !content) return;
 
-    // 初始为收起
     content.classList.add('collapsed');
     toggle.classList.add('collapsed');
 
