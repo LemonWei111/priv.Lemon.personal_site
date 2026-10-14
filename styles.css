@@ -257,3 +257,66 @@ footer {
   max-height: 0;
 }
 
+/* 博客卡片：分隔框，避免“糊在一起” */
+.blogs {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;              /* 卡片之间的间距，替代难看的紧贴 */
+}
+
+.blog {
+    border: 1px solid #E0D6C3;      /* 每篇博客独立边框 */
+    border-radius: 8px;
+    padding: 14px 18px;
+    background-color: #FFFDF8;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.blog:hover {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    border-color: #ADD8E6;
+}
+
+/* 博客标题：可点击，不加 href，仅作 toggle */
+.blog-toggle {
+    margin: 0;
+    font-size: 1.25em;
+    cursor: pointer;
+    user-select: none;
+    color: #333;
+    transition: color 0.3s ease;
+    position: relative;
+    padding-left: 20px;
+}
+
+.blog-toggle:hover {
+    color: #007BFF;
+}
+
+/* 折叠箭头，与 #portfolio-toggle 风格保持一致 */
+.blog-toggle::before {
+    content: "▼";
+    position: absolute;
+    left: 0;
+    font-size: 0.75em;
+    color: #666;
+    transition: transform 0.3s ease;
+}
+
+.blog-toggle.collapsed::before {
+    content: "▶";
+}
+
+/* 博客内容折叠动画 */
+.blog-content {
+    margin-top: 10px;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    max-height: 1000px;      /* 初始展开高度 */
+}
+
+.blog-content.collapsed {
+    max-height: 0;
+    margin-top: 0;
+}
+
