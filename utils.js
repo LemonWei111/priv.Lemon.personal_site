@@ -20,14 +20,23 @@ document.addEventListener('DOMContentLoaded', function () {
   // makeCollapsible('another-toggle', 'another-list');
 });
 
+// 博客
 document.addEventListener('DOMContentLoaded', function () {
   makeCollapsible('portfolio-toggle', 'projects-list');
 
-  document.querySelectorAll('.blog-toggle').forEach((toggle, index) => {
-    const content = toggle.nextElementSibling;
-    if (!content) return;
-    content.id = content.id || `blog-content-${index + 1}`;
-    toggle.id = toggle.id || `blog-toggle-${index + 1}`;
-    makeCollapsible(toggle.id, content.id);
+  // 博客折叠：每个 .blog 内查找 .blog-toggle 和 .blog-content
+  document.querySelectorAll('.blog').forEach(blog => {
+    const toggle = blog.querySelector('.blog-toggle');
+    const content = blog.querySelector('.blog-content');
+    if (!toggle || !content) return;
+
+    // 初始为收起
+    content.classList.add('collapsed');
+    toggle.classList.add('collapsed');
+
+    toggle.addEventListener('click', () => {
+      content.classList.toggle('collapsed');
+      toggle.classList.toggle('collapsed');
+    });
   });
 });
